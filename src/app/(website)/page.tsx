@@ -2,7 +2,7 @@ import HomePage from './home';
 
 import { MyArticles } from '@/types/devto';
 
-async function getArticles(): Promise<MyArticles> {
+export async function getArticles(): Promise<MyArticles> {
   if (!process.env.DEVTO_APIKEY) {
     throw new Error('No dev.to api key provided');
   }
