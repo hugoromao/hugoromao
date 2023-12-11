@@ -26,9 +26,8 @@ export default function Footer(props) {
         </span>
         <span>&middot;</span>
         <span>
-          {' '}
           <a
-            href="https://github.com/web3templates/stablo"
+            href="https://github.com/hugoromao"
             rel="noopener"
             target="_blank">
             Github
