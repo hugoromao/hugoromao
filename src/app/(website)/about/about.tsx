@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Container from '@/components/container';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +10,7 @@ export default function About() {
         About Me
       </h1>
       <div className="text-center">
-        <p className="text-lg">We are a small passionate team.</p>
+        <p className="text-lg">Building a better world with code!</p>
       </div>
 
       <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16">
@@ -34,15 +35,11 @@ export default function About() {
 
       <div className="prose mx-auto mt-14 text-center dark:prose-invert">
         <p>
-          We provide real-time connectivity to enable software
-          providers and financial institutions to build integrated
-          products for their small business customers.
-        </p>
-        <p>
-          Our API infrastructure is leveraged by clients ranging from
-          lenders to corporate card providers and business forecasting
-          tools, with use cases including automatic reconciliation,
-          business dashboarding, and loan decisioning.
+          I am a skilled Front-End Developer with experience in
+          usability, testing, and maintenance of web and mobile
+          systems. I have three years of experience and am proficient
+          in a range of technologies, including TypeScript, Next.js,
+          and React Native.
         </p>
         <p>
           <Link href="/contact">Get in touch</Link>
