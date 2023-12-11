@@ -4,16 +4,25 @@ import { cx } from '@/utils/all';
 import { parseISO, format } from 'date-fns';
 import { PhotoIcon } from '@heroicons/react/24/outline';
 import CategoryLabel from '@/components/blog/category';
+import { Article } from '@/types/devto';
 
-export default function PostList({
-  post,
+type ArticleListProps = {
+  article: Article;
+  aspect: 'landscape' | 'custom' | 'aspect-[5/4]' | 'square';
+  minimal?: boolean;
+  preloadImage?: boolean;
+  fontSize?: string;
+  fontWeight?: string;
+};
+
+export default function ArticleList({
+  article,
   aspect,
   minimal,
-  pathPrefix,
   preloadImage,
   fontSize,
   fontWeight
-}) {
+}: ArticleListProps) {
   return (
     <>
       <div
@@ -34,17 +43,11 @@ export default function PostList({
                   ? 'aspect-[5/4]'
                   : 'aspect-square'
             )}
-            href={`/post/${pathPrefix ? `${pathPrefix}/` : ''}${
-              post.slug.current
-            }`}>
-            {post.mainImage ? (
+            href={`/post/${article.id}`}>
+            {article.cover_image ? (
               <Image
-                src={post.mainImage.src}
-                {...(post.mainImage.blurDataURL && {
-                  placeholder: 'blur',
-                  blurDataURL: post.mainImage.blurDataURL
-                })}
-                alt={post.mainImage.alt || 'Thumbnail'}
+                src={article.cover_image}
+                alt="Thumbnail"
                 priority={preloadImage ? true : false}
                 className="object-cover transition-all"
                 fill
@@ -60,10 +63,7 @@ export default function PostList({
 
         <div className={cx(minimal && 'flex items-center')}>
           <div>
-            <CategoryLabel
-              categories={post.categories}
-              nomargin={minimal}
-            />
+            <CategoryLabel categories={article.tag_list} />
             <h2
               className={cx(
                 fontSize === 'large'
@@ -76,10 +76,7 @@ export default function PostList({
                   : 'font-semibold leading-snug tracking-tight',
                 'mt-2    dark:text-white'
               )}>
-              <Link
-                href={`/post/${pathPrefix ? `${pathPrefix}/` : ''}${
-                  post.slug.current
-                }`}>
+              <Link href={`/post/${article.id}`}>
                 <span
                   className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
       bg-no-repeat
@@ -88,19 +85,16 @@ export default function PostList({
       hover:bg-[length:100%_3px]
       group-hover:bg-[length:100%_10px]
       dark:from-emerald-800 dark:to-emerald-900">
-                  {post.title}
+                  {article.title}
                 </span>
               </Link>
             </h2>
 
             <div className="hidden">
-              {post.excerpt && (
+              {article.description && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                  <Link
-                    href={`/post/${
-                      pathPrefix ? `${pathPrefix}/` : ''
-                    }${post.slug.current}`}>
-                    {post.excerpt}
+                  <Link href={`/post/${article.id}`}>
+                    {article.description}
                   </Link>
                 </p>
               )}
@@ -109,10 +103,10 @@ export default function PostList({
             <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
               <div className="flex items-center gap-3">
                 <div className="relative h-5 w-5 flex-shrink-0">
-                  {post?.author?.image && (
+                  {article.user.profile_image && (
                     <Image
-                      src={post?.author?.image.src}
-                      alt={post?.author?.name}
+                      src={article.user.profile_image}
+                      alt={article.user.name}
                       className="rounded-full object-cover"
                       fill
                       sizes="20px"
@@ -120,7 +114,7 @@ export default function PostList({
                   )}
                 </div>
                 <span className="truncate text-sm">
-                  {post?.author?.name}
+                  {article.user.name}
                 </span>
               </div>
 
@@ -129,9 +123,9 @@ export default function PostList({
               </span>
               <time
                 className="truncate text-sm"
-                dateTime={post?.publishedAt || post._createdAt}>
+                dateTime={article.published_at}>
                 {format(
-                  parseISO(post?.publishedAt || post._createdAt),
+                  parseISO(article.published_at),
                   'MMMM dd, yyyy'
                 )}
               </time>
