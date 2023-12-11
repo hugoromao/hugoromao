@@ -17,8 +17,7 @@ async function getArticle(
   const response = await fetch(
     `https://dev.to/api/articles/hugoromao/${slug}`,
     {
-      headers,
-      next: { revalidate: 3600 }
+      headers
     }
   );
 

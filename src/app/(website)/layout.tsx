@@ -53,5 +53,5 @@ export default async function Layout({
     </>
   );
 }
-// enable revalidate for all pages in this layout
-// export const revalidate = 60;
+
+export const revalidate = 3600;

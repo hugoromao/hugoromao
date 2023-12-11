@@ -12,8 +12,7 @@ async function getUser(): Promise<User> {
   headers.append('api-key', process.env.DEVTO_APIKEY);
 
   const response = await fetch('https://dev.to/api/users/me', {
-    headers,
-    next: { revalidate: 3600 }
+    headers
   });
 
   if (!response.ok) {

@@ -26,5 +26,3 @@ export default async function ArchivePage() {
     </>
   );
 }
-
-// export const revalidate = 60;
