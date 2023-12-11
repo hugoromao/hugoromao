@@ -9,10 +9,18 @@ export default async function IndexPage() {
             '5 Effective Brain Recharging Activities No One is Talking About',
           slug: 'https://dev.to/hugoromao/test-3g8c',
           excerpt: 'excerpt',
-          author: {},
           mainImage: {
-            src: 'https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F2fda477a7e32f813abb9a8ef425939e6a91c7973-987x1481.png%3Frect%3D0%2C279%2C987%2C607%26w%3D987%26auto%3Dformat&w=3840&q=75',
+            src: 'https://res.cloudinary.com/practicaldev/image/fetch/s--3vJZG4Nf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/exes4njxpfd51oe7o828.jpg',
             alt: 'alt'
+          },
+          author: {
+            name: 'Hugo Romão',
+            slug: 'hugo-romao',
+            image: {
+              src: 'https://res.cloudinary.com/practicaldev/image/fetch/s--4KJSv_of--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/450999/e824e272-70dd-41b6-ac84-a41cecd46945.png',
+              alt: 'alt'
+            },
+            bio: 'bio'
           },
           categories: [{ color: 'blue', slug: 'LIFESTYLE' }],
           publishedAt: new Date().toISOString(),

@@ -14,8 +14,6 @@ export default function PostList({
   fontSize,
   fontWeight
 }) {
-  const imageProps = null;
-  const AuthorimageProps = null;
   return (
     <>
       <div
@@ -39,9 +37,9 @@ export default function PostList({
             href={`/post/${pathPrefix ? `${pathPrefix}/` : ''}${
               post.slug.current
             }`}>
-            {imageProps ? (
+            {post.mainImage ? (
               <Image
-                src={imageProps.src}
+                src={post.mainImage.src}
                 {...(post.mainImage.blurDataURL && {
                   placeholder: 'blur',
                   blurDataURL: post.mainImage.blurDataURL
@@ -89,7 +87,7 @@ export default function PostList({
       duration-500
       hover:bg-[length:100%_3px]
       group-hover:bg-[length:100%_10px]
-      dark:from-purple-800 dark:to-purple-900">
+      dark:from-emerald-800 dark:to-emerald-900">
                   {post.title}
                 </span>
               </Link>
@@ -109,24 +107,23 @@ export default function PostList({
             </div>
 
             <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
-              <Link href={`/author/${post?.author?.slug?.current}`}>
-                <div className="flex items-center gap-3">
-                  <div className="relative h-5 w-5 flex-shrink-0">
-                    {post?.author?.image && (
-                      <Image
-                        src={AuthorimageProps.src}
-                        alt={post?.author?.name}
-                        className="rounded-full object-cover"
-                        fill
-                        sizes="20px"
-                      />
-                    )}
-                  </div>
-                  <span className="truncate text-sm">
-                    {post?.author?.name}
-                  </span>
+              <div className="flex items-center gap-3">
+                <div className="relative h-5 w-5 flex-shrink-0">
+                  {post?.author?.image && (
+                    <Image
+                      src={post?.author?.image.src}
+                      alt={post?.author?.name}
+                      className="rounded-full object-cover"
+                      fill
+                      sizes="20px"
+                    />
+                  )}
                 </div>
-              </Link>
+                <span className="truncate text-sm">
+                  {post?.author?.name}
+                </span>
+              </div>
+
               <span className="text-xs text-gray-300 dark:text-gray-600">
                 &bull;
               </span>

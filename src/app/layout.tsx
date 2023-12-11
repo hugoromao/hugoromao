@@ -3,6 +3,7 @@ import '@/styles/tailwind.css';
 import { Inter, Lora } from 'next/font/google';
 
 import { Providers } from './providers';
+
 import { cx } from '@/utils/all';
 
 const inter = Inter({

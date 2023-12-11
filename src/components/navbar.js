@@ -63,31 +63,25 @@ export default function Navbar(props) {
                   ))}
                 </div>
                 <div className="flex w-full items-center justify-between md:w-auto">
-                  <Link href="/" className="w-28 dark:hidden">
-                    {props.logo ? (
-                      <Image
-                        alt="Logo"
-                        priority={true}
-                        sizes="(max-width: 640px) 100vw, 200px"
-                      />
-                    ) : (
-                      <span className="block text-center">
-                        Stablo
-                      </span>
-                    )}
+                  <Link href="/" className="dark:hidden">
+                    <Image
+                      width={48}
+                      height={44}
+                      src="/img/logo.svg"
+                      alt="Logo"
+                      priority={true}
+                      sizes="(max-width: 640px) 100vw, 200px"
+                    />
                   </Link>
-                  <Link href="/" className="hidden w-28 dark:block">
-                    {props.logoalt ? (
-                      <Image
-                        alt="Logo"
-                        priority={true}
-                        sizes="(max-width: 640px) 100vw, 200px"
-                      />
-                    ) : (
-                      <span className="block text-center">
-                        Stablo
-                      </span>
-                    )}
+                  <Link href="/" className="hidden dark:block">
+                    <Image
+                      width={48}
+                      height={44}
+                      src="/img/logo-white.svg"
+                      alt="Logo"
+                      priority={true}
+                      sizes="(max-width: 640px) 100vw, 200px"
+                    />
                   </Link>
                   <Disclosure.Button
                     aria-label="Toggle Menu"
