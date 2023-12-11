@@ -15,7 +15,7 @@ export default function Navbar(props) {
       href: '/'
     },
     {
-      label: 'About',
+      label: 'About Me',
       href: '/about'
     }
   ];

@@ -1,61 +1,63 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from '@/components/container';
-import { notFound } from 'next/navigation';
 
 import { parseISO, format } from 'date-fns';
 
 import CategoryLabel from '@/components/blog/category';
 import AuthorCard from '@/components/blog/authorCard';
+import { ArticleBySlug } from '@/types/devto';
 
-export default function Post(props) {
-  const { loading, post } = props;
+type ArticleProps = {
+  article: ArticleBySlug;
+};
 
-  const slug = post?.slug;
-
-  if (!loading && !slug) {
-    notFound();
-  }
+export default function Article(props: ArticleProps) {
+  const { article } = props;
 
   return (
     <>
       <Container className="!pt-0">
         <div className="mx-auto max-w-screen-md ">
           <div className="flex justify-center">
-            <CategoryLabel categories={post.categories} />
+            <CategoryLabel
+              categories={String(article.tag_list)
+                .split(',')
+                .map(t => t.trim())}
+            />
           </div>
 
           <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-            {post.title}
+            {article.title}
           </h1>
 
-          <div className="mt-3 flex justify-center space-x-3 text-gray-500 ">
+          <div className="mt-3 flex justify-center space-x-3 text-gray-500">
             <div className="flex items-center gap-3">
               <div className="relative h-10 w-10 flex-shrink-0">
-                {post?.author?.image && (
-                  <Image
-                    src={post?.author?.image.src}
-                    alt={post?.author?.name}
-                    className="rounded-full object-cover"
-                    fill
-                    sizes="40px"
-                  />
-                )}
+                <Image
+                  src={article.user.profile_image}
+                  alt={article.user.name}
+                  className="rounded-full object-cover"
+                  fill
+                  sizes="40px"
+                />
               </div>
               <div>
                 <p className="text-gray-800 dark:text-gray-400">
-                  {post.author.name}
+                  {article.user.name}
                 </p>
                 <div className="flex items-center space-x-2 text-sm">
                   <time
                     className="text-gray-500 dark:text-gray-400"
-                    dateTime={post?.publishedAt || post._createdAt}>
+                    dateTime={article.published_at}>
                     {format(
-                      parseISO(post?.publishedAt || post._createdAt),
+                      parseISO(article.published_at),
                       'MMMM dd, yyyy'
                     )}
                   </time>
-                  <span>· {post.estReadingTime || '5'} min read</span>
+                  <span>
+                    · {article.reading_time_minutes || '5'} min read
+                  </span>
                 </div>
               </div>
             </div>
@@ -64,23 +66,23 @@ export default function Post(props) {
       </Container>
 
       <div className="relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg">
-        {post.mainImage && (
-          <Image
-            src={post.mainImage.src}
-            alt={post.mainImage.alt || 'Thumbnail'}
-            loading="eager"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        )}
+        <Image
+          src={article.cover_image}
+          alt={'Thumbnail'}
+          loading="eager"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
       </div>
 
       <Container>
-        <article className="mx-auto max-w-screen-md ">
-          <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
-            {post.body}
-          </div>
+        <article className="mx-auto max-w-screen-md">
+          <div
+            className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600"
+            dangerouslySetInnerHTML={{
+              __html: article.body_html
+            }}></div>
           <div className="mb-7 mt-7 flex justify-center">
             <Link
               href="/"
@@ -88,7 +90,7 @@ export default function Post(props) {
               ← View all posts
             </Link>
           </div>
-          {post.author && <AuthorCard author={post.author} />}
+          <AuthorCard />
         </article>
       </Container>
     </>

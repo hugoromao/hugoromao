@@ -1,8 +1,8 @@
 import HomePage from './home';
 
-import { Article } from '@/types/devto';
+import { MyArticles } from '@/types/devto';
 
-async function getArticles(): Promise<Article[]> {
+async function getArticles(): Promise<MyArticles> {
   if (!process.env.DEVTO_APIKEY) {
     throw new Error('No dev.to api key provided');
   }
@@ -13,7 +13,7 @@ async function getArticles(): Promise<Article[]> {
 
   const response = await fetch('https://dev.to/api/articles/me', {
     headers,
-    next: { revalidate: 0 }
+    next: { revalidate: 3600 }
   });
 
   if (!response.ok) {
@@ -24,6 +24,5 @@ async function getArticles(): Promise<Article[]> {
 
 export default async function IndexPage() {
   const articles = await getArticles();
-
   return <HomePage articles={articles} />;
 }

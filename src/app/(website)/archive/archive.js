@@ -1,4 +1,4 @@
-import PostList from '@/components/postlist';
+import ArticleList from '@/components/articlelist';
 import Pagination from '@/components/blog/pagination';
 
 export default async function Post({ searchParams }) {
@@ -32,7 +32,7 @@ export default async function Post({ searchParams }) {
       )}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
         {posts.map(post => (
-          <PostList key={post._id} post={post} aspect="square" />
+          <ArticleList key={post._id} post={post} aspect="square" />
         ))}
       </div>
 

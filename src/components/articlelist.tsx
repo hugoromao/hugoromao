@@ -43,7 +43,7 @@ export default function ArticleList({
                   ? 'aspect-[5/4]'
                   : 'aspect-square'
             )}
-            href={`/post/${article.id}`}>
+            href={`/article/${article.slug}`}>
             {article.cover_image ? (
               <Image
                 src={article.cover_image}
@@ -76,7 +76,7 @@ export default function ArticleList({
                   : 'font-semibold leading-snug tracking-tight',
                 'mt-2    dark:text-white'
               )}>
-              <Link href={`/post/${article.id}`}>
+              <Link href={`/article/${article.slug}`}>
                 <span
                   className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
       bg-no-repeat
@@ -93,7 +93,7 @@ export default function ArticleList({
             <div className="hidden">
               {article.description && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                  <Link href={`/post/${article.id}`}>
+                  <Link href={`/article/${article.slug}`}>
                     {article.description}
                   </Link>
                 </p>

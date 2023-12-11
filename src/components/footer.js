@@ -45,8 +45,9 @@ export default function Footer(props) {
               src="/img/vercel.svg"
               alt="Powered by Vercel"
               unoptimized={true}
-              width="150"
-              height="25"
+              width="0"
+              height="0"
+              className="h-auto w-full"
             />
           </a>
         </div>
