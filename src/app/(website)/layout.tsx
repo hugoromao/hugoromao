@@ -4,7 +4,7 @@ import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://hugoromao.vercel.app'),
   title: 'Hugo Romão • Personal Website',
   description:
     'Welcome to my personal laboratory – a cozy corner of the internet where science and technology come to life with a personal touch!',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       'Welcome to my personal laboratory – a cozy corner of the internet where science and technology come to life with a personal touch!',
     images: [
       {
-        url: '/img/opengraph.png',
+        url: 'https://hugoromao.vercel.app/opengraph.png',
         width: 800,
         height: 600
       }
