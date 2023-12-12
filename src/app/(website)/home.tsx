@@ -25,7 +25,7 @@ export async function getArticles(): Promise<MyArticles> {
 export default function Post({ articles }: { articles: MyArticles }) {
   return (
     <>
-      {articles.length && (
+      {articles.length ? (
         <Container>
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
             {articles.slice(0, 2).map(article => (
@@ -47,6 +47,8 @@ export default function Post({ articles }: { articles: MyArticles }) {
             ))}
           </div>
         </Container>
+      ) : (
+        <p className="text-center">There is no articles yet</p>
       )}
     </>
   );

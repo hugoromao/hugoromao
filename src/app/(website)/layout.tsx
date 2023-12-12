@@ -41,7 +41,7 @@ export default async function Layout({
     <>
       <Navbar />
 
-      <div>{children}</div>
+      <main>{children}</main>
 
       <Footer />
     </>
