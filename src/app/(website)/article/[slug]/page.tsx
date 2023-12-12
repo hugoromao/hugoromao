@@ -1,7 +1,38 @@
-import { ArticleBySlug } from '@/types/devto';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import ArticlePage from './default';
-import { notFound } from 'next/navigation';
+import { ArticleBySlug } from '@/types/devto';
+
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const slug = params.slug;
+  const article = await getArticle(slug);
+
+  if (article === null) {
+    notFound();
+  }
+
+  return {
+    title: article.title,
+    description: article.description,
+    keywords: article.tag_list,
+    openGraph: {
+      images: [article.social_image]
+    },
+    twitter: {
+      title: article.title,
+      card: 'summary_large_image'
+    },
+    robots: {
+      index: true,
+      follow: true
+    }
+  };
+}
 
 async function getArticle(
   slug: string
@@ -36,7 +67,6 @@ export default async function ArticleDefault(props: {
 
   if (article === null) {
     notFound();
-    return;
   }
 
   return <ArticlePage article={article} />;
