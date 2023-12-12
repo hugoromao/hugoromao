@@ -1,5 +1,5 @@
 import ArticleList from '@/components/articlelist';
-import { getArticles } from '../page';
+import { getArticles } from '../home';
 
 export default async function Archive() {
   const articles = await getArticles();

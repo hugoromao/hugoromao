@@ -4,10 +4,10 @@ import { cx } from '@/utils/all';
 import { parseISO, format } from 'date-fns';
 import { PhotoIcon } from '@heroicons/react/24/outline';
 import CategoryLabel from '@/components/blog/category';
-import { Article } from '@/types/devto';
+import { Root2 } from '@/types/devto';
 
 type ArticleListProps = {
-  article: Article;
+  article: Root2;
   aspect: 'landscape' | 'custom' | 'aspect-[5/4]' | 'square';
   minimal?: boolean;
   preloadImage?: boolean;
