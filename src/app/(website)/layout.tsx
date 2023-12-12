@@ -1,42 +1,36 @@
+import { Metadata } from 'next';
+
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
-async function sharedMetaData() {
-  return {
-    // enable this for resolving opengraph image
-    // metadataBase: new URL(settings.url),
-    title: {
-      default: 'Stablo - Blog Template for Next.js & Sanity CMS',
-      template: '%s | Stablo'
-    },
+export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'),
+  title: 'Hugo Romão • Personal Website',
+  description:
+    'Welcome to my personal laboratory – a cozy corner of the internet where science and technology come to life with a personal touch!',
+  keywords: ['Hugo Romão', 'Portfólio', 'Blog'],
+  authors: [{ name: 'Hugo Lima Romão' }],
+  openGraph: {
+    title: 'Hugo Romão • Personal Website',
     description:
-      'Stablo - popular open-source next.js and sanity blog template',
-    keywords: ['Next.js', 'Sanity', 'Tailwind CSS'],
-    authors: [{ name: 'Surjith' }],
-    canonical: 'settings?.url',
-    openGraph: {
-      images: [
-        {
-          url: '/img/opengraph.jpg',
-          width: 800,
-          height: 600
-        }
-      ]
-    },
-    twitter: {
-      title: 'Stablo Template',
-      card: 'summary_large_image'
-    },
-    robots: {
-      index: true,
-      follow: true
-    }
-  };
-}
-
-export async function generateMetadata() {
-  return await sharedMetaData();
-}
+      'Welcome to my personal laboratory – a cozy corner of the internet where science and technology come to life with a personal touch!',
+    images: [
+      {
+        url: '/img/opengraph.png',
+        width: 800,
+        height: 600
+      }
+    ]
+  },
+  twitter: {
+    title: 'Hugo Romão • Personal Website',
+    card: 'summary_large_image'
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
+};
 
 export default async function Layout({
   children

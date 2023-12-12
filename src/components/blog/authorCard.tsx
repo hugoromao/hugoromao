@@ -47,7 +47,7 @@ export default async function AuthorCard() {
             <Link
               href={`/about`}
               className="bg-brand-secondary/20 rounded-full py-2 text-sm text-blue-600 dark:text-blue-500 ">
-              View Profile
+              More about me
             </Link>
           </div>
         </div>
