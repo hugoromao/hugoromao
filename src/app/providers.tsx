@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from 'next-themes';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -8,8 +9,11 @@ interface ProvidersProps {
 
 export function Providers({ children }: ProvidersProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
-      {children}
-    </ThemeProvider>
+    <>
+      <SpeedInsights />
+      <ThemeProvider attribute="class" defaultTheme="light">
+        {children}
+      </ThemeProvider>
+    </>
   );
 }
