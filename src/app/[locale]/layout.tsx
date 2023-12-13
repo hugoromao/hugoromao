@@ -29,7 +29,7 @@ export default function RootLayout({
       lang={locale}
       suppressHydrationWarning
       className={cx(inter.variable, lora.variable)}>
-      <Head>
+      <Head key={'global'}>
         <meta
           name="google-site-verification"
           content="Qufe6ZpDpJZ659WymsEhkTVRMrdkF8rG887Sdm9iDiM"
