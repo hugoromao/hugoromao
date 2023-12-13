@@ -6,6 +6,7 @@ import React, { Fragment } from 'react';
 import { Disclosure } from '@headlessui/react';
 
 import Container from '@/components/container';
+import { useLocale } from 'next-intl';
 
 export type NavBarItem = {
   label: string;
@@ -21,7 +22,19 @@ export type NavbarProps = {
 };
 
 export default function Navbar({ leftmenu, rightmenu }: NavbarProps) {
+  const locale = useLocale();
   const mobilemenu = [...leftmenu, ...rightmenu];
+
+  const renderFlag = (languageCode: 'pt' | 'en', emoji: string) => {
+    const isInactive = locale !== languageCode;
+    const className = isInactive ? 'grayscale' : '';
+
+    return (
+      <Link href={`/${languageCode}`} key={languageCode}>
+        <p className={className}>{emoji}</p>
+      </Link>
+    );
+  };
 
   return (
     <Container>
@@ -88,7 +101,6 @@ export default function Navbar({ leftmenu, rightmenu }: NavbarProps) {
                     </svg>
                   </Disclosure.Button>
                 </div>
-
                 <div className="order-2 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row">
                   {rightmenu.map((item, index) => (
                     <Fragment key={`${item.label}${index}`}>
@@ -107,6 +119,11 @@ export default function Navbar({ leftmenu, rightmenu }: NavbarProps) {
                       </Link>
                     </Fragment>
                   ))}
+
+                  <span className="ml-auto flex gap-2">
+                    {renderFlag('pt', '🇧🇷')}
+                    {renderFlag('en', '🇺🇸')}
+                  </span>
                 </div>
               </div>
               <Disclosure.Panel>
@@ -123,6 +140,11 @@ export default function Navbar({ leftmenu, rightmenu }: NavbarProps) {
                       </Link>
                     </Fragment>
                   ))}
+
+                  <span className="flex w-full gap-2 px-5 py-2">
+                    {renderFlag('pt', '🇧🇷')}
+                    {renderFlag('en', '🇺🇸')}
+                  </span>
                 </div>
               </Disclosure.Panel>
             </>
