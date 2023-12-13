@@ -68,7 +68,6 @@ export default function Layout({
   ];
 
   const hotjarID = process.env.NEXT_PUBLIC_HOTJAR_ID;
-
   return (
     <>
       <Navbar leftmenu={leftmenu} rightmenu={rightmenu} />
