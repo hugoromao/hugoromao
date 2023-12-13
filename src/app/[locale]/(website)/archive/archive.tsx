@@ -1,8 +1,12 @@
+import { Locale } from '@/i18n';
+import { useLocale } from 'next-intl';
+
 import ArticleList from '@/components/articlelist';
 import { getArticles } from '../home';
 
 export default async function Archive() {
-  const articles = await getArticles();
+  const locale = useLocale();
+  const articles = await getArticles(locale as Locale);
 
   return (
     <>

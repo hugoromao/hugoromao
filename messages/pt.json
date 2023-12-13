@@ -1,0 +1,39 @@
+{
+  "navbar": {
+    "home": "Início",
+    "about": "Sobre Mim",
+    "archive": "Arquivo",
+    "contact": "Contato"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "made by": "Feito por"
+  },
+  "article": {
+    "minread": "min de leitura",
+    "viewallposts": "Ver todos os posts",
+    "about": "Sobre",
+    "about link": "Mais sobre mim"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Construindo um mundo melhor com código!",
+    "description": "Desenvolvedor Front-End com 3 anos de experiência em usabilidade, testes e manutenção de aplicações web. Especialista em Typescript, NextJS e React Native.",
+    "get in touch": "Entre em contato"
+  },
+  "archive": {
+    "title": "Arquivo",
+    "subtitle": "Veja todos os posts que já escrevi."
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Vamos construir algo incrível! 😄",
+    "details title": "Entre em Contato",
+    "details description": "Tem algo a dizer? Estou aqui para ajudar. Preencha o formulário ou envie um e-mail.",
+
+    "field1": "Nome Completo",
+    "field2": "Endereço de E-mail",
+    "field3": "Sua Mensagem",
+    "submit": "Enviar Mensagem"
+  }
+}

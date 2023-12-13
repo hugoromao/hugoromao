@@ -1,9 +1,13 @@
-import Link from 'next/link';
+import { Locale } from '@/i18n';
+
 import Container from '@/components/container';
 import ArticleList from '@/components/articlelist';
+
 import { MyArticles } from '@/types/devto';
 
-export async function getArticles(): Promise<MyArticles> {
+export async function getArticles(
+  locale: Locale
+): Promise<MyArticles> {
   if (!process.env.DEVTO_APIKEY) {
     throw new Error('No dev.to api key provided');
   }
@@ -19,7 +23,22 @@ export async function getArticles(): Promise<MyArticles> {
   if (!response.ok) {
     throw new Error('Failed to fetch articles');
   }
-  return response.json();
+
+  let articles: MyArticles = await response.json();
+  
+  if (locale.includes('pt')) {
+    articles = articles.filter(a =>
+      a.tag_list.includes('braziliandevs')
+    );
+  }
+
+  if (locale.includes('en')) {
+    articles = articles.filter(
+      a => !a.tag_list.includes('braziliandevs')
+    );
+  }
+
+  return articles;
 }
 
 export default function Post({ articles }: { articles: MyArticles }) {

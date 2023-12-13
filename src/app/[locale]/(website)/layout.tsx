@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
+import { useLocale, useTranslations } from 'next-intl';
 
 import Footer from '@/components/footer';
-import Navbar from '@/components/navbar';
+import Navbar, { NavBarItem } from '@/components/navbar';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hugoromao.vercel.app'),
@@ -32,14 +33,39 @@ export const metadata: Metadata = {
   }
 };
 
-export default async function Layout({
+export default function Layout({
   children
 }: {
   children: React.ReactNode;
 }) {
+  const locale = useLocale();
+  const t = useTranslations('navbar');
+
+  const leftmenu: NavBarItem[] = [
+    {
+      label: t('home'),
+      href: `/${locale}`
+    },
+    {
+      label: t('about'),
+      href: `/${locale}/about`
+    }
+  ];
+
+  const rightmenu: NavBarItem[] = [
+    {
+      label: t('archive'),
+      href: `/${locale}/archive`
+    },
+    {
+      label: t('contact'),
+      href: `/${locale}/contact`
+    }
+  ];
+
   return (
     <>
-      <Navbar />
+      <Navbar leftmenu={leftmenu} rightmenu={rightmenu} />
 
       <main>{children}</main>
 

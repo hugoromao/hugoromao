@@ -1,16 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import Container from '@/components/container';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function About() {
+  const t = useTranslations('about');
+
   return (
     <Container>
       <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-        About Me
+        {t('title')}
       </h1>
       <div className="text-center">
-        <p className="text-lg">Building a better world with code!</p>
+        <p className="text-lg">{t('subtitle')}</p>
       </div>
 
       <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16">
@@ -34,15 +37,9 @@ export default function About() {
       </div>
 
       <div className="prose mx-auto mt-14 text-center dark:prose-invert">
+        <p>{t('description')}</p>
         <p>
-          I am a skilled Front-End Developer with experience in
-          usability, testing, and maintenance of web and mobile
-          systems. I have three years of experience and am proficient
-          in a range of technologies, including TypeScript, Next.js,
-          and React Native.
-        </p>
-        <p>
-          <Link href="/contact">Get in touch</Link>
+          <Link href="/contact">{t('get in touch')}</Link>
         </p>
       </div>
     </Container>

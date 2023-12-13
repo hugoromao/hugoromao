@@ -1,0 +1,39 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Me",
+    "archive": "Archive",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "made by": "Made by"
+  },
+  "article": {
+    "minread": "min read",
+    "viewallposts": "View all posts",
+    "about": "About",
+    "about link": "More about me"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Building a better world with code!",
+    "description": "I am a skilled Front-End Developer with experience in usability, testing, and maintenance of web and mobile systems. I have three years of experience and am proficient in a range of technologies, including TypeScript, Next.js, and React Native.",
+    "get in touch": "Get in touch"
+  },
+  "archive": {
+    "title": "Archive",
+    "subtitle": "See all posts I have ever written."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's build something amazing!😄",
+    "details title": "Contact Me",
+    "details description": "Have something to say? I am here to help. Fill up the form or send an email.",
+
+    "field1": "Full Name",
+    "field2": "Email Address",
+    "field3": "Your Message",
+    "submit": "Send Message"
+  }
+}

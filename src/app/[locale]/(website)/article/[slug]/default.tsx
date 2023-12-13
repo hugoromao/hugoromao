@@ -7,6 +7,8 @@ import { parseISO, format } from 'date-fns';
 import CategoryLabel from '@/components/blog/category';
 import AuthorCard from '@/components/blog/authorCard';
 import { ArticleBySlug } from '@/types/devto';
+import { useLocale, useTranslations } from 'next-intl';
+import { enUS, pt } from 'date-fns/locale';
 
 type ArticleProps = {
   article: ArticleBySlug;
@@ -14,6 +16,9 @@ type ArticleProps = {
 
 export default function Article(props: ArticleProps) {
   const { article } = props;
+
+  const locale = useLocale();
+  const t = useTranslations('article');
 
   return (
     <>
@@ -48,15 +53,18 @@ export default function Article(props: ArticleProps) {
                 </p>
                 <div className="flex items-center space-x-2 text-sm">
                   <time
-                    className="text-gray-500 dark:text-gray-400"
+                    className="capitalize text-gray-500 dark:text-gray-400"
                     dateTime={article.published_at}>
                     {format(
                       parseISO(article.published_at),
-                      'MMMM dd, yyyy'
+                      'MMMM dd, yyyy',
+                      { locale: locale === 'pt' ? pt : enUS }
                     )}
                   </time>
                   <span>
-                    · {article.reading_time_minutes || '5'} min read
+                    {`· ${article.reading_time_minutes} ${t(
+                      'minread'
+                    )}`}
                   </span>
                 </div>
               </div>
@@ -85,9 +93,9 @@ export default function Article(props: ArticleProps) {
             }}></div>
           <div className="mb-7 mt-7 flex justify-center">
             <Link
-              href="/"
+              href={`/${locale}/archive`}
               className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 ">
-              ← View all posts
+              {`← ${t('viewallposts')}`}
             </Link>
           </div>
           <AuthorCard />

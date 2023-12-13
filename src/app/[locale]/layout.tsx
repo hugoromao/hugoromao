@@ -17,13 +17,15 @@ const lora = Lora({
 });
 
 export default function RootLayout({
-  children
+  children,
+  params: { locale }
 }: {
   children: React.ReactNode;
+  params: { locale: 'pt' | 'en' };
 }) {
   return (
     <html
-      lang="en"
+      lang={locale}
       suppressHydrationWarning
       className={cx(inter.variable, lora.variable)}>
       <body className="text-gray-800 antialiased dark:bg-black dark:text-gray-400">
