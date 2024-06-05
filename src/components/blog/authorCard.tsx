@@ -1,7 +1,7 @@
-import { User } from '@/types/devto';
-import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { User } from '@/types/devto';
 
 async function getUser(): Promise<User> {
   if (!process.env.DEVTO_APIKEY) {
@@ -23,9 +23,6 @@ async function getUser(): Promise<User> {
 }
 
 export default async function AuthorCard() {
-  const locale = useLocale();
-  const t = useTranslations('article');
-
   const { profile_image, name, summary } = await getUser();
 
   return (
@@ -43,20 +40,18 @@ export default async function AuthorCard() {
         <div>
           <div className="mb-3">
             <h3 className="text-lg font-medium text-gray-800 dark:text-gray-300">
-              {`${t('about')} ${name}`}
+              {`About ${name}`}
             </h3>
           </div>
           <div>
-            {locale === 'en'
-              ? summary
-              : 'Desenvolvedor Front-End com 3 anos de experiência em usabilidade, testes e manutenção de aplicações web. Especialista em Typescript, NextJS e React Native.'}
-          </div>
-          <div className="mt-3">
-            <Link
-              href={`/${locale}/about`}
-              className="bg-brand-secondary/20 rounded-full py-2 text-sm text-blue-600 dark:text-blue-500 ">
-              {t('about link')}
-            </Link>
+            {summary}
+            <div className="mt-3">
+              <Link
+                href={`/about`}
+                className="bg-brand-secondary/20 rounded-full py-2 text-sm text-blue-600 dark:text-blue-500 ">
+                About Me
+              </Link>
+            </div>
           </div>
         </div>
       </div>

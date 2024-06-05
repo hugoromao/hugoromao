@@ -6,7 +6,6 @@ import { PhotoIcon } from '@heroicons/react/24/outline';
 import CategoryLabel from '@/components/blog/category';
 import { Root2 } from '@/types/devto';
 import { enUS, pt } from 'date-fns/locale';
-import { useLocale } from 'next-intl';
 
 type ArticleListProps = {
   article: Root2;
@@ -25,8 +24,6 @@ export default function ArticleList({
   fontSize,
   fontWeight
 }: ArticleListProps) {
-  const locale = useLocale();
-
   return (
     <>
       <div
@@ -47,7 +44,7 @@ export default function ArticleList({
                   ? 'aspect-[5/4]'
                   : 'aspect-square'
             )}
-            href={`/${locale}/article/${article.slug}`}>
+            href={`/article/${article.slug}`}>
             {article.cover_image ? (
               <Image
                 src={article.cover_image}
@@ -80,7 +77,7 @@ export default function ArticleList({
                   : 'font-semibold leading-snug tracking-tight',
                 'mt-2    dark:text-white'
               )}>
-              <Link href={`/${locale}/article/${article.slug}`}>
+              <Link href={`/article/${article.slug}`}>
                 <span
                   className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
       bg-no-repeat
@@ -97,7 +94,7 @@ export default function ArticleList({
             <div className="hidden">
               {article.description && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                  <Link href={`/${locale}/article/${article.slug}`}>
+                  <Link href={`/article/${article.slug}`}>
                     {article.description}
                   </Link>
                 </p>
@@ -130,8 +127,7 @@ export default function ArticleList({
                 dateTime={article.published_at}>
                 {format(
                   parseISO(article.published_at),
-                  'MMMM dd, yyyy',
-                  { locale: locale === 'pt' ? pt : enUS }
+                  'MMMM dd, yyyy'
                 )}
               </time>
             </div>
