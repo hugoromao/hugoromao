@@ -7,7 +7,10 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
-    remotePatterns: [{ hostname: 'res.cloudinary.com' }]
+    remotePatterns: [
+      { hostname: 'res.cloudinary.com' },
+      { hostname: 'media.dev.to' }
+    ]
   }
 };
 
