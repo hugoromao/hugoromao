@@ -81,7 +81,7 @@ export default function California() {
       ];
 
       const response = await fetch(
-        `https://apis.hugoromao.dev/california/predict`,
+        `${process.env.NEXT_PUBLIC_APIS_URL}/california/predict`,
         {
           method: 'POST',
           body: JSON.stringify({ features })

@@ -44,7 +44,7 @@ const Mnist = () => {
       const rgb784 = pixels.filter(
         (_, index) => (index + 1) % 4 === 0
       );
-      const response = await fetch(`http://localhost:8080/predict`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_APIS_URL}/mnist/predict`, {
         method: 'POST',
         body: JSON.stringify(rgb784)
       }).then(r => r.json());
