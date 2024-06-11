@@ -17,8 +17,8 @@ export default async function IndexPage() {
             linkToProject="/california"
             categories={[
               'DataScience',
-              'Machine Learning',
-              'Regression'
+              'Regression',
+              'ML'
             ]}
           />
           <LinkToProject
@@ -28,8 +28,8 @@ export default async function IndexPage() {
             linkToProject="/mnist"
             categories={[
               'DataScience',
-              'Machine Learning',
-              'Classification'
+              'Classification',
+              'ML'
             ]}
           />
           <LinkToProject
