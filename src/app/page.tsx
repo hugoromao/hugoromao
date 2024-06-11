@@ -32,6 +32,13 @@ export default async function IndexPage() {
               'Classification'
             ]}
           />
+          <LinkToProject
+            title="EasyGuard"
+            description="Protect your online accounts with secure and memorable passwords, generated through a personalized and scientifically tested process."
+            cover_image="/img/easyguard.jpg"
+            linkToProject="https://play.google.com/store/apps/details?id=app.hugoromao.gamified_password_generator.twa"
+            categories={['Cybersecurity', 'Password Generator']}
+          />
         </div>
         <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 "></div>
       </Container>
