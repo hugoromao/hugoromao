@@ -2,6 +2,7 @@ import HomePage, { getArticles } from './home';
 
 import Container from '@/components/container';
 import LinkToProject from '@/components/LinkToProject';
+import { lora } from './layout';
 
 export default async function IndexPage() {
   const articles = await getArticles();
@@ -9,28 +10,24 @@ export default async function IndexPage() {
   return (
     <>
       <Container>
+        <h1
+          className={`text-center text-2xl font-bold ${lora.className} mb-6`}>
+          Projects
+        </h1>
         <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
           <LinkToProject
             title="California Housing Prices"
             description="A regression model to predict the median house prices for California districts derived from the 1990 census."
             cover_image="/img/california.jpg"
             linkToProject="/california"
-            categories={[
-              'DataScience',
-              'Regression',
-              'ML'
-            ]}
+            categories={['DataScience', 'Regression', 'ML']}
           />
           <LinkToProject
             title="MNIST Classifier"
             description="Handwritten Digit Classifier using K-Nearest Neighbors with 97.14% accuracy"
             cover_image="/img/mnist2.jpg"
             linkToProject="/mnist"
-            categories={[
-              'DataScience',
-              'Classification',
-              'ML'
-            ]}
+            categories={['DataScience', 'Classification', 'ML']}
           />
           <LinkToProject
             title="EasyGuard"
@@ -42,6 +39,11 @@ export default async function IndexPage() {
         </div>
         <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 "></div>
       </Container>
+
+      <h1
+        className={`text-center text-2xl font-bold ${lora.className} mb-6`}>
+        Posts
+      </h1>
       <HomePage articles={articles} />
     </>
   );
