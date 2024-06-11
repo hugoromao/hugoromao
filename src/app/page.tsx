@@ -5,7 +5,7 @@ import HomePage, { getArticles } from './home';
 import Container from '@/components/container';
 import LinkToProject from '@/components/LinkToProject';
 
-export const lora = Lora({
+const lora = Lora({
   subsets: ['latin'],
   variable: '--font-lora'
 });
