@@ -48,7 +48,7 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
-export const lora = Lora({
+const lora = Lora({
   subsets: ['latin'],
   variable: '--font-lora'
 });

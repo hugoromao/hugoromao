@@ -1,8 +1,14 @@
+import { Lora } from 'next/font/google';
+
 import HomePage, { getArticles } from './home';
 
 import Container from '@/components/container';
 import LinkToProject from '@/components/LinkToProject';
-import { lora } from './layout';
+
+export const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora'
+});
 
 export default async function IndexPage() {
   const articles = await getArticles();
