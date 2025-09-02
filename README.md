@@ -1,5 +1,5 @@
 # 💫 About Me:
-Experienced Front-End Developer adept in bringing forth expertise in usability, testing, and maintenance of web and mobile systems. With three years of expertise, I'm proficient in an assortment of technologies, including Typescript, NextJS, and React Native.
+Bacharel em Ciência da Computação pela Universidade Federal de Roraima. Atua como Analista de Tecnologia da Informação na Coordenação de Sistemas de Informação da UFRR. Possui experiência profissional em desenvolvimento de sistemas web e aplicações mobile, análise de requisitos, testes de software e desenvolvimento de APIs REST. É proficiente em tecnologias web como TypeScript, Java, Kotlin, PostgreSQL e Node.js. Desenvolve pesquisas sobre Informática na Educação e Cibersegurança.
 
 
 # 💻 Tech Stack:
